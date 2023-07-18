@@ -17,9 +17,9 @@ class OTPEmail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($otp)
     {
-       $this->otp=rand(1000,9999); 
+       $this->otp=$otp; 
     }
 
     /**
@@ -38,7 +38,7 @@ class OTPEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.otpmail',
+            view: 'email.otpmail',
         );
     }
 
